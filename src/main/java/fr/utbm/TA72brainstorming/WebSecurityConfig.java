@@ -18,7 +18,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // (1)
   protected void configure(HttpSecurity http) throws Exception {  // (2)
       http
         .authorizeRequests()
-          .antMatchers("/", "/home").permitAll() // (3)
+          .antMatchers("/", "/home" , "/greeting", "/h2-console/**").permitAll() // (3)
           .anyRequest().authenticated() // (4)
           .and()
        .formLogin() // (5)
@@ -29,6 +29,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // (1)
         .permitAll()
         .and()
       .httpBasic(); // (7)
+
+	  http.csrf().disable();
+	  http.headers().frameOptions().disable();
   }
   
   @Bean
