@@ -1,4 +1,4 @@
-package fr.utbm.TA72brainstorming;
+package fr.utbm.TA72brainstorming.entity;
 
 public class Greeting {
 

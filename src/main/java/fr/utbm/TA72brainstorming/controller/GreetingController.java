@@ -1,6 +1,8 @@
-package fr.utbm.TA72brainstorming;
+package fr.utbm.TA72brainstorming.controller;
 
 import java.util.concurrent.atomic.AtomicLong;
+
+import fr.utbm.TA72brainstorming.entity.Greeting;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
