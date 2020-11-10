@@ -1,0 +1,54 @@
+DROP TABLE IF EXISTS reactions;
+DROP TABLE IF EXISTS publications;
+DROP TABLE IF EXISTS discussions;
+DROP TABLE IF EXISTS messages;
+DROP TABLE IF EXISTS users;
+ 
+CREATE TABLE users (
+  id_user INT AUTO_INCREMENT  PRIMARY KEY,
+  username VARCHAR(50) NOT NULL,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  email VARCHAR(100) DEFAULT NULL,
+  password VARCHAR(100) NOT NULL
+);
+
+INSERT INTO USERS VALUES (1,'mom','m','p','email','passwd');
+
+CREATE TABLE messages (
+  id_msg INT AUTO_INCREMENT  PRIMARY KEY,
+  sender_id INT NOT NULL,
+  receiver_id INT NOT NULL,
+  content VARCHAR(500) NOT NULL,
+  send_time TIMESTAMP NOT NULL,
+  FOREIGN KEY (sender_id) REFERENCES users(id_user),
+  FOREIGN KEY (receiver_id) REFERENCES users(id_user)
+);
+
+CREATE TABLE discussions (
+  id_discussion INT AUTO_INCREMENT  PRIMARY KEY,
+  creator_id INT NOT NULL,
+  topic VARCHAR(500) NOT NULL,
+  creation_time TIMESTAMP NOT NULL,
+  FOREIGN KEY (creator_id) REFERENCES users(id_user)
+);
+
+CREATE TABLE publications (
+  id_pub INT AUTO_INCREMENT  PRIMARY KEY,
+  creator_id INT NOT NULL,
+  discussion_id INT NOT NULL,
+  content VARCHAR(2000) NOT NULL,
+  send_time TIMESTAMP NOT NULL,
+  FOREIGN KEY (creator_id) REFERENCES users(id_user),
+  FOREIGN KEY (discussion_id) REFERENCES discussions(id_discussion)
+);
+
+CREATE TABLE reactions (
+  creator_id INT NOT NULL,
+  pub_id INT NOT NULL,
+  reaction_type VARCHAR(30) NOT NULL,
+  creation_time TIMESTAMP NOT NULL,
+  PRIMARY KEY (creator_id,pub_id),
+  FOREIGN KEY (creator_id) REFERENCES users(id_user),
+  FOREIGN KEY (pub_id) REFERENCES publications(id_pub)
+);
