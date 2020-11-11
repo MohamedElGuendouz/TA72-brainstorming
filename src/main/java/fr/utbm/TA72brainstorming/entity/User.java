@@ -3,7 +3,7 @@ package fr.utbm.TA72brainstorming.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity(name = "User")
+@Entity
 @Table(name = "users")
 
 public class User implements Serializable
@@ -78,5 +78,9 @@ public class User implements Serializable
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
-	
+
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", username=" + username + ", first name=" + firstname + ", lastname=" + lastname + '}';
+    }
 }
