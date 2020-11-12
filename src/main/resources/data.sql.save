@@ -13,7 +13,7 @@ CREATE TABLE users (
   password VARCHAR(100) NOT NULL
 );
 
-INSERT INTO USERS VALUES (1,'mom','m','p','email','passwd');
+-- INSERT INTO USERS VALUES (1,'mom','m','p','email','passwd');
 
 CREATE TABLE messages (
   id_msg INT AUTO_INCREMENT  PRIMARY KEY,

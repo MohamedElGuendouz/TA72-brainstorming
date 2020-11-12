@@ -17,13 +17,14 @@ public class Ta72BrainstormingApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Ta72BrainstormingApplication.class, args);
-                User u1 = new User();
+                /*User u1 = new User();
                 u1.setUsername("coreduss");
                 u1.setPassword("qwertyr");
                 u1.setFirstname("Loanns");
                 u1.setLastname("Peureys");
+				u1.setEmail("mail");
                 EntityUserDao efd = new EntityUserDao();
-                efd.save(u1);
+                efd.save(u1);*/
 	}
 	
 	@GetMapping("/hello")

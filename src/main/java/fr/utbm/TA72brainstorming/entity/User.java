@@ -16,6 +16,14 @@ public class User implements Serializable
         this.id = id;
     }
 
+    public User(String username, String password, String email, String firstname, String lastname) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
+
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -29,6 +37,10 @@ public class User implements Serializable
     @Basic(optional = false)
     @Column(name = "password")
     private String password;
+    
+    @Basic(optional = false)
+    @Column(name = "email")
+    private String email;
 	
     @Basic(optional = false)
     @Column(name = "first_name")
@@ -77,6 +89,14 @@ public class User implements Serializable
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
