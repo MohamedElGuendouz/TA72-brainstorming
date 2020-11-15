@@ -44,11 +44,11 @@ CREATE TABLE publications (
 );
 
 CREATE TABLE reactions (
+  id_reac INT AUTO_INCREMENT PRIMARY KEY,
   creator_id INT NOT NULL,
   pub_id INT NOT NULL,
   reaction_type VARCHAR(30) NOT NULL,
   creation_time TIMESTAMP NOT NULL,
-  PRIMARY KEY (creator_id,pub_id),
   FOREIGN KEY (creator_id) REFERENCES users(id_user),
   FOREIGN KEY (pub_id) REFERENCES publications(id_pub)
 );

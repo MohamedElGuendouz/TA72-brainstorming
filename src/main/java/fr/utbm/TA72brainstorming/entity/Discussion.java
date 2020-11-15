@@ -22,7 +22,7 @@ public class Discussion implements Serializable{
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_discussion")
-    private long id;
+    private Long id;
     
     @Basic(optional = false)
     @Column(name = "topic")
@@ -42,7 +42,7 @@ public class Discussion implements Serializable{
         this.creator = creator;
     }
 
-    public Discussion(long id, String topic, Timestamp creationTime, User creator) {
+    public Discussion(Long id, String topic, Timestamp creationTime, User creator) {
         this.id = id;
         this.topic = topic;
         this.creationTime = creationTime;
@@ -52,11 +52,11 @@ public class Discussion implements Serializable{
     public Discussion() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

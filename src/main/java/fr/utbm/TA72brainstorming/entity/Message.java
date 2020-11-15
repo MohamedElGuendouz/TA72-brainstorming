@@ -14,7 +14,7 @@ public class Message implements Serializable
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_msg")
-    private long id;
+    private Long id;
     
     @Basic(optional = false)
     @Column(name = "content")
@@ -39,14 +39,14 @@ public class Message implements Serializable
         this.receiver = receiver;
     }
 
-    public Message(long id) {
+    public Message(Long id) {
         this.id = id;
     }
 
     public Message() {
     }
 
-    public Message(long id, String content, Timestamp sendTime, User sender, User receiver) {
+    public Message(Long id, String content, Timestamp sendTime, User sender, User receiver) {
         this.id = id;
         this.content = content;
         this.sendTime = sendTime;
@@ -54,11 +54,11 @@ public class Message implements Serializable
         this.receiver = receiver;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

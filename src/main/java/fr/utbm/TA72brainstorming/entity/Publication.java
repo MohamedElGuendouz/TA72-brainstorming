@@ -22,7 +22,7 @@ public class Publication implements Serializable{
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_pub")
-    private long id;
+    private Long id;
     
     @Basic(optional = false)
     @Column(name = "content")
@@ -40,7 +40,7 @@ public class Publication implements Serializable{
     @ManyToOne(fetch = FetchType.EAGER)
     private Discussion discussion;
 
-    public Publication(long id, String content, Timestamp sendTime, User creator, Discussion discussion) {
+    public Publication(Long id, String content, Timestamp sendTime, User creator, Discussion discussion) {
         this.id = id;
         this.content = content;
         this.sendTime = sendTime;
@@ -58,11 +58,11 @@ public class Publication implements Serializable{
     public Publication() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
