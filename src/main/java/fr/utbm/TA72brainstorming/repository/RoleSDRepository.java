@@ -7,22 +7,17 @@ package fr.utbm.TA72brainstorming.repository;
 
 import java.util.Optional;
 
-import fr.utbm.TA72brainstorming.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import fr.utbm.TA72brainstorming.entity.Role;
+import fr.utbm.TA72brainstorming.entity.ERole;
 
 /**
  *
  * @author loann
  */
 @Repository
-public interface UserSDRepository extends JpaRepository<User, Long> {
-    
-    User findById(long id);
-    
-    Optional<User> findByUsername(String username);
-
-    Boolean existsByUsername(String username);
-
-    Boolean existsByEmail(String email);
+public interface RoleSDRepository extends JpaRepository<Role, Long>{
+    Optional<Role> findByName(ERole name);
 }

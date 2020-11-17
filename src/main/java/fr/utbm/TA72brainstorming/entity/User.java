@@ -3,6 +3,9 @@ package fr.utbm.TA72brainstorming.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "users")
 
@@ -16,12 +19,18 @@ public class User implements Serializable
         this.id = id;
     }
 
-    public User(String username, String password, String email, String firstname, String lastname) {
+    public User(String username, String email, String password, String firstname, String lastname) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.firstname = firstname;
         this.lastname = lastname;
+    }
+
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
     }
 
     @Id
@@ -43,12 +52,18 @@ public class User implements Serializable
     private String email;
 	
     @Basic(optional = false)
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable=true)
     private String firstname;
     
     @Basic(optional = false)
-    @Column(name = "last_name")
+    @Column(name = "last_name", nullable=true)
     private String lastname;
+    
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(	name = "user_roles", 
+		joinColumns = @JoinColumn(name = "user_id"), 
+		inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
     
     public Long getId()
     {
@@ -97,6 +112,14 @@ public class User implements Serializable
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     @Override
