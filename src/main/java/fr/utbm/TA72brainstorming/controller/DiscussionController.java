@@ -51,6 +51,12 @@ public class DiscussionController {
         return dsdr.findAll();
     }
     
+    @GetMapping("/search")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
+    public List<Discussion> getListSearchDisc(@RequestParam(value = "topic") String chaine) {
+        return dsdr.findAllByTopicContaining(chaine);
+    }
+    
     @PostMapping("/register")
     @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<?> registerMessage(@Valid @RequestBody DiscussionRequest request) {

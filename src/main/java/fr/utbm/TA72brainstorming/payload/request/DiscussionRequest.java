@@ -12,7 +12,6 @@ import javax.validation.constraints.NotBlank;
  * @author Loann
  */
 public class DiscussionRequest {
-    @NotBlank
     private long creatorId;
 
     @NotBlank

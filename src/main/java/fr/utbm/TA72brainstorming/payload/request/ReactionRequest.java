@@ -12,7 +12,6 @@ import javax.validation.constraints.NotBlank;
  * @author Loann
  */
 public class ReactionRequest {
-    @NotBlank
     private long creatorId;
 
     @NotBlank
@@ -21,7 +20,6 @@ public class ReactionRequest {
     @NotBlank
     private String type;
     
-    @NotBlank
     private long PublicationId;
 
     public long getCreatorId() {

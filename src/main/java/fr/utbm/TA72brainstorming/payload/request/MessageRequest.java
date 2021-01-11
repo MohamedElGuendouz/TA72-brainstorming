@@ -12,11 +12,9 @@ import javax.validation.constraints.NotBlank;
  * @author Loann
  */
 public class MessageRequest {
-    @NotBlank
     private long senderId;
 
-    @NotBlank
-    private long ReceiverId;
+    private long receiverId;
     
     @NotBlank
     private String time;
@@ -33,11 +31,11 @@ public class MessageRequest {
     }
 
     public long getReceiverId() {
-        return ReceiverId;
+        return receiverId;
     }
 
     public void setReceiverId(long ReceiverId) {
-        this.ReceiverId = ReceiverId;
+        this.receiverId = ReceiverId;
     }
 
     public String getTime() {

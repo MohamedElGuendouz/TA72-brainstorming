@@ -17,4 +17,6 @@ public interface DiscussionSDRepository extends CrudRepository<Discussion, Long>
     Discussion findById(long id);
     
     List<Discussion> findAll();
+    
+    List<Discussion> findAllByTopicContaining(String chaine);
 }
