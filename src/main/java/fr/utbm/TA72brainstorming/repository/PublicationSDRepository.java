@@ -5,7 +5,9 @@
  */
 package fr.utbm.TA72brainstorming.repository;
 
+import fr.utbm.TA72brainstorming.entity.Discussion;
 import fr.utbm.TA72brainstorming.entity.Publication;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 /**
  *
@@ -14,4 +16,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface PublicationSDRepository extends CrudRepository<Publication, Long>{
     
     Publication findById(long id);
+    
+    List<Publication> findAllByDiscussion(Discussion disc);
 }

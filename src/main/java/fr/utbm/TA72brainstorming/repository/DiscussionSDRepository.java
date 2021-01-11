@@ -6,6 +6,7 @@
 package fr.utbm.TA72brainstorming.repository;
 
 import fr.utbm.TA72brainstorming.entity.Discussion;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 /**
  *
@@ -14,4 +15,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface DiscussionSDRepository extends CrudRepository<Discussion, Long>{
     
     Discussion findById(long id);
+    
+    List<Discussion> findAll();
 }
